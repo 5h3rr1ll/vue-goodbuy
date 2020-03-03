@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+
+  goodbuy-vue-app:
+    container_name: goodbuy-vue-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '8081:8080'
