@@ -3,10 +3,10 @@ FROM node:lts-alpine
 # install simple http server for serving static content
 RUN npm install -g http-server
 
-RUN mkdir /goodbuy-django-vue-docker
+RUN mkdir /goodbuy-vue-docker
 
 # make the app folder the current working directory
-WORKDIR /goodbuy-django-vue-docker
+WORKDIR /goodbuy-vue-docker
 
 # copy both package.json and package-lock.json (if available)
 COPY package*.json ./
@@ -21,4 +21,5 @@ COPY . .
 RUN npm run build
 
 EXPOSE 8080
+
 CMD [ "http-server", "dist" ]
